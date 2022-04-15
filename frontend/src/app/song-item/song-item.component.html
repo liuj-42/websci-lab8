@@ -1,0 +1,22 @@
+<div class="card mb-3" id="content" style="max-width: 750px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+          <a href={{songLink}} class="img-link">
+              <img src={{image}} class="card-img" alt="album art">
+          </a>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">{{name}}</h4>
+          <hr/>
+          <span class="card-text artists">Artists:</span>
+          
+          <ul class="horizontal" *ngFor="let artist of parseArtists(artists)">
+              <li><a href={{artist[1]}}>{{artist[0]}}</a></li>
+          </ul>
+          <!-- <hr class="bottomButNotReally"/> -->
+          <footer class="card-text bottom"><hr/><small class="text-muted">Played {{parse(played)}} ago</small></footer>
+        </div>
+      </div>
+    </div>
+  </div>

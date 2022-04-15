@@ -1,0 +1,26 @@
+.img-link {
+    padding: 5px;
+}
+
+.horizontal{
+    display: inline-block;
+}
+
+.horizontal li {
+    list-style: none;
+}
+
+#content {
+    width: 75vw;
+    margin: 0 auto;
+}
+
+
+
+.bottom {
+    position: relative;
+    bottom: -55px;
+    width: auto;
+    height: auto;
+    background-color: rgba(211, 211, 211, 0.5);
+}

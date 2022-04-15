@@ -1,0 +1,18 @@
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal"
+        class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name">
+    <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h4 id="dialog-auto-name" class="modal-title pull-left">Log in to Spotify</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="hideModal()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <p>You are not logged in to Spotify</p>
+        <p>Click on the button below to log in to Spotify and to use this app</p>
+        </div>
+        <a href="http://localhost:3000/login"><button type="button" class="btn-primary btn">Log in</button></a>
+    </div>
+    </div>
+</div>

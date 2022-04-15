@@ -1,0 +1,14 @@
+<div id="info">
+        <h1>Signed in as {{name}}. You are a {{product}} user</h1>
+</div>
+
+<div id="recently-played" *ngIf="gotData==true">
+    <app-song-item *ngFor="let track of data" 
+    played={{track[0]}}
+    name={{track[1]}}
+    artists={{track[2]}}
+    songLink={{track[3]}}
+    image={{track[4]}}
+    >
+</app-song-item>
+</div>
