@@ -35,9 +35,10 @@ export class AppComponent implements OnInit{
   }
 
   lab5(pie1: PieComponent, pie2: PieComponent) {
-
-    this.lab4Show = false;
-    this.lab5Show = true;
+    // this.httpService.get("http://localhost:3000/populate").subscribe(() => {
+      this.lab4Show = false;
+      this.lab5Show = true;
+    // })
   }
 
 

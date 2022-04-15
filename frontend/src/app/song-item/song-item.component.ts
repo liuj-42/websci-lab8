@@ -17,11 +17,12 @@ export class SongItemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // console.log(this.played)
+    // console.log(this.artists)
   }
 
   parseArtists(arr: string) {
     console.log("parsing artists")
+    // console.log(JSON.parse(arr))
     return JSON.parse(arr);
   }
 

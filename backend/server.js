@@ -94,6 +94,7 @@ app.get("/refresh_token", function (req, res) {
 async function refresh() {
   // requesting access token from refresh token
   let refresh_token = info["Refresh"];
+  console.log(refresh_token)
   let authOptions = {
     url: "https://accounts.spotify.com/api/token",
     headers: {
@@ -265,7 +266,6 @@ app.get("/recent", (req, res) => {
         
           collection.updateOne(filter, replace, options).then((result) => {
             res.status(200).send(trimmed);
-            
           });
             // request.put({url:"http://localhost:3000/db/1", data: db}, function(error, response, body) {
             // })
@@ -319,7 +319,7 @@ app.get("/check-like", (req, res) => {
 
 app.get("/populate", (req, res) => {
   const token = info["Authorization"];
-  console.log(token);
+//   console.log(token);
   let options = {
     url: "https://api.spotify.com/v1/me/top/artists?limit=400",
     headers: {
@@ -329,7 +329,7 @@ app.get("/populate", (req, res) => {
   };
   let data = [];
   request.get(options, function (error, response, body) {
-    // console.log(body);
+    console.log(body);
     body["items"].forEach((el) => {
       data.push({
         Artist: el["name"],
@@ -337,10 +337,16 @@ app.get("/populate", (req, res) => {
         Popularity: el["popularity"],
       });
     });
-    axios.put("/db/2", { data: data });
 
-    fs.writeFileSync("data.json", JSON.stringify(data));
-    res.status(200).send(data);
+    const filter = { number: 2 };
+    const replace = { $set: { data: data } };
+  
+    collection.updateOne(filter, replace, {upsert: false}).then((result) => {
+        fs.writeFileSync("data.json", JSON.stringify(data));
+        res.status(200).send(data);
+    });
+
+
   });
 });
 
