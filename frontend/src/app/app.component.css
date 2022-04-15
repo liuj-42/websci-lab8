@@ -1,0 +1,26 @@
+#lab-selection {
+    width:max-content;
+    margin: 0 auto;
+}
+
+#lab-selection * {
+    margin: 5px;
+}
+
+#graphs, .flex-grid {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+    padding: 1vw;
+}
+
+/* .flex-grid * {
+    padding: 1vw;
+} */

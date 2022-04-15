@@ -1,3 +1,33 @@
 
+<app-login></app-login>
+
+
+<div id="lab-selection">
+    <button type="button" class="btn btn-primary" (click)="lab4()">Songs</button>
+    <button type="button" class="btn btn-primary" (click)="lab5(pie_1, pie_2)">Some charts</button>
+</div>
+
+
+<ng-container *ngIf="lab4Show">
+    <app-login *ngIf="loggedin==false"></app-login>
+    <app-loggedin *ngIf="loggedin==true"></app-loggedin>
+</ng-container>
+
+<ng-container *ngIf="lab5Show">
+    <div class="flex-grid">
+        <div class="col">
+            <app-pie title="Artists present in your recently played" type="1" name="pie1"></app-pie>
+        </div>
+        <div class="col">
+            <app-pie title="Popularity of your top 50 artists" type="2" name="pie2"></app-pie>
+        </div>
+    </div>
+    
+
+    <app-scatter></app-scatter>
+</ng-container>
+
+
+
 
 <router-outlet></router-outlet>
